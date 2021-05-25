@@ -64,6 +64,11 @@ class BeerOrderControllerTest {
                 PageRequest.of(1, 1), 1L);
     }
 
+    @AfterEach
+    void tearDown() {
+        reset(beerOrderService);
+    }
+
     @Test
     void listOrders() throws Exception {
         given(beerOrderService.listOrders(any(), any())).willReturn(beerOrderPagedList);
